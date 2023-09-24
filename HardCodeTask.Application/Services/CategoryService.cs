@@ -1,6 +1,8 @@
-﻿using HardCodeTask.Application.DTOs.Categories;
+﻿using AutoMapper;
+using HardCodeTask.Application.DTOs.Categories;
 using HardCodeTask.Application.DTOs.Products;
 using HardCodeTask.Application.IServices;
+using HardCodeTask.Domain.Entities.Categories;
 using HardCodeTask.Domain.Entities.Products;
 using HardCodeTask.Infrastructure.Data;
 using System;
@@ -10,9 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HardCodeTask.Application.Services;
-public class CategoryService : BaseService<CategoryDTO>, ICategoryService
+public class CategoryService : BaseService<CategoryDTO, Category>, ICategoryService
 {
-    public CategoryService(AppDbContext db) : base(db)
+    public CategoryService(AppDbContext db, IMapper mapper) : base(db, mapper)
     {
     }
 }

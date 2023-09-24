@@ -1,4 +1,5 @@
-﻿using HardCodeTask.Application.DTOs.Products;
+﻿using AutoMapper;
+using HardCodeTask.Application.DTOs.Products;
 using HardCodeTask.Application.IServices;
 using HardCodeTask.Domain.Entities.Products;
 using HardCodeTask.Infrastructure.Data;
@@ -9,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HardCodeTask.Application.Services;
-public class ProductService : BaseService<ProductDTO>, IProductService
+public class ProductService : BaseService<ProductDTO, Product>, IProductService
 {
-    public ProductService(AppDbContext db) : base(db)
+    public ProductService(AppDbContext db, IMapper mapper) : base(db, mapper)
     {
     }
 }
